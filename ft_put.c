@@ -6,7 +6,7 @@
 /*   By: mdahhou <mdahhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:48:57 by mdahhou           #+#    #+#             */
-/*   Updated: 2025/11/12 18:44:05 by mdahhou          ###   ########.fr       */
+/*   Updated: 2025/11/12 19:27:15 by mdahhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,28 @@ int	ft_putstr(char *s)
 	return (a);
 }
 
-long	ft_putnbr(long n)
+int	ft_putnbr(int n)
 {
-	long a;
+	int		a;
+	long	b;
 
+	b = n;
 	a = 1;
-	if (n < 0)
+	if (b < 0)
 	{
 		write(1, "-", 1);
-		n *= -1;
+		b *= -1;
 		a++;
 	}
-	if (n > 9)
-		a += ft_putnbr(n / 10);
-	ft_putchar((n % 10) + 48);
+	if (b > 9)
+		a = ft_putnbr(b / 10);
+	ft_putchar((b % 10) + 48);
 	return (a);
 }
 
 int main()
 {
-	printf("\n %ld \n", ft_putnbr(-2147483648));
-	// printf("\n %ld \n", ft_putnbr(-2147483648));
+	ft_putnbr(123);
+	// printf("\n %d \n", ft_putnbr(123));
+	// printf("\n %d \n", -214748364);
 }
