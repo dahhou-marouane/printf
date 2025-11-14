@@ -1,16 +1,19 @@
 NAME = libftprintf.a
-CFILES = -Wall -Werror -Wextra
-SRC = ft_put.c
+CFLAGS = -Wall -Werror -Wextra
+src = ft_printf.c ft_put.c
 
-$(OBJ) = $(src:.c=.o)
+OBJ = $(src:.c=.o)
 
-$(NAME) : $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
+
+
 %.o: %.c printf.h
-	@cc $(NAME) -c $< -o $@
+	@cc $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)
